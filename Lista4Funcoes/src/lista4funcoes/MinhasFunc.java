@@ -18,7 +18,6 @@ public class MinhasFunc {
 
     public static int entradaInt() {
 
-        System.out.print("Digite:");
         int x = ler.nextInt();
         return x;
 
@@ -26,10 +25,20 @@ public class MinhasFunc {
 
     public static double entradaDb() {
 
-        System.out.print("Digite:");
         double x = ler.nextDouble();
         return x;
 
+    }
+
+    public static int retornaMenor(int menor) {
+
+        int num = ler.nextInt();
+
+        if (num < menor) {
+            menor = num;
+        }
+
+        return menor;
     }
 
     public static int somatoria(int N) {
@@ -50,7 +59,7 @@ public class MinhasFunc {
         return multiplica;
     }
 
-    public static int numeroPositivoValidacao(int num, Scanner ler) {
+    public static int numeroPositivoValidacao(int num) {
 
         while (num < 0) {
             System.out.print("Digite um número maior que 0: ");

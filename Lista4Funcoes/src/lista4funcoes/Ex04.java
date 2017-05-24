@@ -5,8 +5,6 @@
  */
 package lista4funcoes;
 
-import java.util.Scanner;
-
 /**
  *
  * @author andre.ayamamoto
@@ -15,24 +13,20 @@ public class Ex04 {
 
     public static void main(String[] args) {
 
-        Scanner ler = new Scanner(System.in);
-
         //Entrada
         System.out.print("Digite um número: ");
-        int N = ler.nextInt();
-        
-        
+        int N = MinhasFunc.entradaInt();
+
         //Validando
-        N = MinhasFunc.numeroPositivoValidacao(N, ler);
-        
-        
+        N = MinhasFunc.numeroPositivoValidacao(N);
+
         //Processo
         int produto = MinhasFunc.fatorial(N);//Fatorial
-        
+
         int soma = MinhasFunc.somatoria(N);//Somatoria
-        
+
         int divisao = produto / soma;
-        
+
         //Saída
         System.out.println(divisao);
     }

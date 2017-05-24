@@ -5,8 +5,6 @@
  */
 package lista4funcoes;
 
-import java.util.Scanner;
-
 /**
  *
  * @author andré.yamamoto <aayandre94@gmail.com>
@@ -15,13 +13,11 @@ public class Ex02 {
 
     public static void main(String[] args) {
 
-        Scanner ler = new Scanner(System.in);
-
         System.out.print("Digite um número: ");
-        int num = ler.nextInt();
+        int num = MinhasFunc.entradaInt();
 
         //Validação
-        num = MinhasFunc.numeroPositivoValidacao(num, ler);
+        num = MinhasFunc.numeroPositivoValidacao(num);
 
         //Processo
         num = MinhasFunc.somatoria(num);
