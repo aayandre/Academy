@@ -23,11 +23,23 @@ public class MinhasFunc {
 
     }
 
+    public static float entradaFloat() {
+
+        float x = ler.nextFloat();
+        return x;
+    }
+
     public static double entradaDb() {
 
         double x = ler.nextDouble();
         return x;
 
+    }
+
+    public static String entradaTXT() {
+
+        String x = ler.next();
+        return x;
     }
 
     public static int retornaMenor(int menor) {
@@ -205,6 +217,39 @@ public class MinhasFunc {
             return "Adulto";
         } else {
             return "Abaixo de 5 anos.";
+        }
+    }
+
+    public static String conceitoNota(float nota) {
+        String conceito;
+        if (nota >= 0.0 && nota <= 4.9) {
+            conceito = "D";
+        } else if (nota >= 5.0 && nota <= 6.9) {
+            conceito = "C";
+        } else if (nota >= 7.0 && nota <= 8.9) {
+            conceito = "B";
+        } else if (nota >= 9.0 && nota <= 10.0) {
+            conceito = "A";
+        } else {
+            conceito = "Nota Inválida.\nMaior que 10 ou menor que 0";
+        }
+
+        return conceito;
+    }
+
+    public static double alturaPesoIdeal(double alt, String sexo) {
+
+        double peso;
+        switch (sexo.toLowerCase()) {
+            case "m":
+                peso = (72.7 * alt) - 58;
+                return peso;
+            case "f":
+                peso = (62.1 * alt) - 44.7;
+                return peso;
+            default:
+                System.out.println("Informação inválida");
+                return peso = 0;
         }
     }
 
