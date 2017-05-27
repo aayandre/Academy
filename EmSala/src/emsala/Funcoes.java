@@ -112,11 +112,11 @@ public class Funcoes {
 
         int vetor4[] = new int[vetor.length + vetor3.length];
 
-        for (int i = 0; i < vetor.length; i++) {
-            if (i <= vetor.length) {
+        for (int i = 0; i < vetor4.length; i++) {
+            if (i < vetor.length) {
                 vetor4[i] = vetor[i];
-            } else if (i > vetor.length) {
-                vetor4[i] = vetor3[i];
+            } else if (i >= vetor.length) {
+                vetor4[i] = vetor3[i - vetor.length];
             }
 
         }
