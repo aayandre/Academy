@@ -253,4 +253,52 @@ public class MinhasFunc {
         }
     }
 
+    public static int numeroDeDivisores(int numero) {
+
+        int divisores = 0;
+
+        for (int i = 1; i <= numero; i++) {
+            if (numero % i == 0) {
+                divisores++;
+            }
+        }
+
+        return divisores;
+    }
+
+    public static int somaDeAaN(int A, int N) {
+        if (N <= 0) {
+            System.out.println("O N é menor ou iguál a 0.\nInformação inválida.");
+            return -1;
+        } else {
+
+            int somaDosN = A;
+
+            for (int i = 1; i < N; i++) {
+                somaDosN += (i + A);
+            }
+            //Aqui seria a soma de A até o 'i' chegar no N 
+            /*for (int i = A; i <= N; i++) {
+                somaDosN += i;
+            }*/
+ /*Mas também poderia ser a soma de A até N numeros a sua frente,
+            ou seja, A=2 e N=4 sería 2+3+4+5+6. Ficaria:            
+            Depende da interpretação do exercício. Mas acho que está certo pelo exemplo do enunciado.
+             */
+            System.out.println("- - Soma - -");
+            return somaDosN;
+
+        }
+    }
+
+    public static double potencia(double x, double z) {
+
+        double resultado = 1;
+
+        for (int i = 0; i < z; i++) {
+            resultado *= x;
+        }
+        return resultado;
+    }
+
 }
