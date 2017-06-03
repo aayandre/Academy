@@ -141,6 +141,7 @@ public class Lista5Arrays {
         for (double i : x) {
             soma += i;
         }
+        System.out.printf("Média = %.2f / %d\n", soma, x.length);
         double media = soma / x.length;
         return media;
     }
@@ -161,6 +162,40 @@ public class Lista5Arrays {
             vetor[i] *= multiplicador;
             System.out.println("" + vetor[i]);
         }
+    }
+
+    static int[] arrayUnion(int[] x, int[] y) {
+        
+        int uniao[] = new int[x.length + y.length];
+
+        for (int i = 0; i < uniao.length; i++) {
+            if (i < x.length) {
+                uniao[i] = x[i];
+            } else if (i >= x.length) {
+                uniao[i] = y[i - x.length];
+            }
+
+        }
+        return uniao;
+    }
+
+    static int[] arrayUnionAlternated(int[] x, int[] y) {
+
+        int uniao[] = new int[x.length + y.length];
+        int contador = 0;
+
+        for (int i = 0; i < uniao.length; i += 2) {
+            uniao[i] = x[contador];
+            contador++;
+        }
+
+        contador = 0;
+        for (int i = 1; i <= uniao.length; i += 2) {
+            uniao[i] = y[contador];
+            contador++;
+        }
+
+        return uniao;
     }
 
     static int entradaInt() {
