@@ -13,11 +13,23 @@ import java.util.Scanner;
  */
 public class Ex02 {
 
+    //M é menor que N
     public static void main(String[] args) {
 
-    }
+        System.out.println("Soma entre M e N e intervalos\n");
 
-    static Scanner ler = new Scanner(System.in);
+        //Entradas
+        int m = ExerciciosFuncao.lerInt("Digite o valor de M");
+
+        m = validarNumero(m);//Verifica se é maior que 0
+
+        int n = ExerciciosFuncao.lerInt("Digite o valor de N");
+
+        n = validarNumero(n);//Verifica se é maior que 0
+
+        //Soma entre todos
+        somaEntreTodos(m, n);
+    }
 
     static int validarNumero(int numero) {
 
@@ -25,9 +37,7 @@ public class Ex02 {
 
         if (numFinal <= 0) {
             do {
-                System.out.println("Digite um número > que 0: ");
-                numFinal = ler.nextInt();
-
+                numFinal = ExerciciosFuncao.lerInt("Digite um número > que 0: ");
             } while (numFinal <= 0);
         }
 
@@ -35,9 +45,15 @@ public class Ex02 {
 
     }
 
-    static int somaEntreTodos(int m, int n) {
-        
-        
+    static void somaEntreTodos(int m, int n) {
+        int resultado = m;
+
+        for (int i = m; i < n; i++) {
+            resultado += (i + 1);
+        }
+
+        System.out.println(resultado);
+
     }
 
 }

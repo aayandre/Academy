@@ -5,13 +5,26 @@
  */
 package exerciciosfuncao;
 
+import java.util.Scanner;
+
 /**
  *
  * @author andre.ayamamoto
  */
 public class ExerciciosFuncao {
 
-    public static void main(String[] args) {
+    static Scanner ler = new Scanner(System.in);
+
+    static int lerInt(String texto) {
+        System.out.println(texto);
+        int x = ler.nextInt();
+        return x;
     }
     
+    static double lerDouble(String texto) {
+        System.out.println(texto);
+        double x = ler.nextDouble();
+        return x;
+    }
+
 }

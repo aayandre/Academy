@@ -15,19 +15,36 @@ public class Ex01 {
 
     public static void main(String[] args) {
 
+        System.out.println("Par ou Impar?");
+
+        //Entrada
+        int numero = ExerciciosFuncao.lerInt("Digite um número");
+
+        //Verifica se o número é par ou impar
+        boolean parOuImpar = testarSeParOuImpar(numero);
+
+        //Imprime na tela o resultado
+        mostrarParOuImpar(parOuImpar);
+
     }
 
-    static Scanner ler = new Scanner(System.in);
-    
-    static boolean lerEntrada(int numero) {
-        
-        
+    static boolean testarSeParOuImpar(int numero) {
+
+        boolean parOuImpar = false;
+
+        if (numero % 2 == 0) {
+            parOuImpar = true;
+        }
+
+        return parOuImpar;
     }
-    
-    static String parOuImpar(boolean resultado) {
-        
-        if(resultado)
-        
+
+    static void mostrarParOuImpar(boolean resultadoFinal) {
+        if (resultadoFinal) {
+            System.out.println("Par");
+        } else {
+            System.out.println("Impar");
+        }
     }
 
 }
