@@ -18,32 +18,42 @@ public class Ex05 {
 
     public static void main(String[] args) {
 
+        //Número aleatório
+        int sorteado = Funcoes.aleatorio.nextInt(10) + 1;
+
+        //Processo
+        compararSeAdivinhou(sorteado);
+
     }
 
-    static int compararSeAdivinhou() {
+    static void compararSeAdivinhou(int aleatorio) {
 
+        //Inicializando
         String entradaUser = null;
-        boolean desistirOn = false;
-        boolean adivinhou = false;
+        boolean fecharLaco = false, adivinhou = false;
 
         do {
             entradaUser = Funcoes.lerTEXTOnext("Digite um número");
 
             //Checar se o usuario vai sair do laço ou não
-            desistirOn = verSeDesistiu(entradaUser);
-            if (desistirOn) {
+            fecharLaco = verSeDesistiu(entradaUser);
+            if (fecharLaco) {
                 break;
             }
 
             //Comparar com o Random
-            
-            
-        } while (desistirOn == false);
+            adivinhou = compararComRandom(entradaUser, aleatorio);
+            if (adivinhou) {
+                fecharLaco = true;
+            }
+
+        } while (fecharLaco == false);
     }
 
     static boolean verSeDesistiu(String entradaUser) {
 
         boolean desistiuQ = false;
+        entradaUser = entradaUser.replaceAll("\\s", "");
 
         if (entradaUser.equalsIgnoreCase("desistir")) {
             System.out.println("Você desistiu.");
@@ -55,10 +65,22 @@ public class Ex05 {
         return desistiuQ;
     }
 
-    static boolean comprarComRandom(String numero) {
+    static boolean compararComRandom(String numero, int aleatorio) {
+
+        boolean adivinhouQ = false;
+
+        //Muda o tipo da variável
+        numero = numero.trim();
         int textoToInt = Integer.parseInt(numero);
-        
-        
+
+        //Validação
+        if (textoToInt == aleatorio) {
+            System.out.printf("Você adivinhou!\nO número era: %d\n", aleatorio);
+            adivinhouQ = true;
+        }
+
+        return adivinhouQ;
+
     }
 
 }
