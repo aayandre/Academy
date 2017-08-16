@@ -5,6 +5,7 @@
  */
 package revisao2pi;
 
+import java.util.Random;
 import java.util.Scanner;
 
 /**
@@ -12,6 +13,8 @@ import java.util.Scanner;
  * @author andré.yamamoto <aayandre94@gmail.com>
  */
 public class Funcoes {
+
+    static Random aleatorio = new Random();
 
     static Scanner ler = new Scanner(System.in);
 
@@ -38,6 +41,5 @@ public class Funcoes {
         String x = ler.nextLine();
         return x;
     }
-    
-    
+
 }
