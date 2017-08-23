@@ -5,7 +5,8 @@
  */
 package testedoswing;
 
-import java.awt.Button;
+import java.awt.Component;
+import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -36,6 +37,19 @@ public class TesteDoSwing {
 
         ThreadSwing runMLK = new ThreadSwing();
         SwingUtilities.invokeLater(runMLK);
+    }
+    
+    public static void criaBotao(String nome, Container panel, ActionListener teste) {
+        JButton botao = new JButton(nome);
+        botao.setAlignmentX(Component.CENTER_ALIGNMENT);
+        panel.add(botao);
+        ActionListener al = teste;
+        //CRIAR CLASSE COM OS ATRIBUTOS DE BOTÃO, NOME, ETC
+        
+    }
+    
+    public static void criaOuvintes(ActionListener teste) {
+        
     }
 
     public static void criarGUI() {
@@ -73,6 +87,17 @@ public class TesteDoSwing {
         JButton butaoNovo = new JButton("Cuoco");
         JButton butaoDePegarTexto = new JButton("Mostra texto");
         JButton butaoCheckBoquix = new JButton("Boquix");
+        
+        
+        
+        
+        
+        
+        
+        criaBotao("Mostrar", panel);
+        //criaBotao("Novo", panel);
+        //criaBotao("Teste", panel);
+        //criaBotao("Check", panel);
 
         //Criar checkBOx
         JCheckBox boquis = new JCheckBox("Storage");
@@ -93,13 +118,12 @@ public class TesteDoSwing {
         ActionListener ouvinteNovo = (ActionEvent e) -> {
             System.out.println("Francisco Cuoco");
         };
-
         butaoNovo.addActionListener(ouvinteNovo);
-
         butaoNovo.addActionListener((ActionEvent e) -> {
             System.out.println("LALALALALLALALALLA");
         });
 
+        //Outro botão
         butaoDePegarTexto.addActionListener((ActionEvent e) -> {
             JOptionPane.showMessageDialog(tela, "Reultado: " + caixadetxt.getText());
         });
@@ -107,7 +131,7 @@ public class TesteDoSwing {
         butaoCheckBoquix.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                JOptionPane.showMessageDialog(tela, "Item Selecionado: " + );
+                JOptionPane.showMessageDialog(tela, "Item Selecionado: " + boquis2);
             }
         });
 
@@ -123,6 +147,20 @@ public class TesteDoSwing {
 
         boquis.addItemListener(verBoquis);
 
+    }
+
+    private static class ActionListenerImpl implements ActionListener {
+
+        private final JFrame tela;
+
+        public ActionListenerImpl(JFrame tela) {
+            this.tela = tela;
+        }
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            JOptionPane.showMessageDialog(tela, "lalalalal");
+        }
     }
 
 }
