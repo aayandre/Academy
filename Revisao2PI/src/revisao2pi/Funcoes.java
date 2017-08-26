@@ -41,6 +41,11 @@ public class Funcoes {
         String x = ler.nextLine();
         return x;
     }
+    
+    static String lerOnlyTEXTO() {
+        String x = ler.next();
+        return x;
+    }
 
     static void pulaLinhas(int x) {
         //Para sumir as coisas acima

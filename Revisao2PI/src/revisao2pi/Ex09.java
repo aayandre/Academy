@@ -19,7 +19,9 @@ public class Ex09 {
 
     static void principal() {
 
-        String entradaUser = null;
+        String entradaUser = "";
+
+        boolean saiu = false;
 
         System.out.println("- - - Aulas da Semana - - -\n\nDigite \"sair\" para sair.");
 
@@ -27,114 +29,141 @@ public class Ex09 {
 
         mostrarMatriz(matrizFinal);
 
-//        while (!entradaUser.equalsIgnoreCase("sair")) {
-//
-//        }
+        while (saiu == false) {
+            matrizFinal = preencheComEntradaUser(matrizFinal);
+            if (saiu = validarMatriz(matrizFinal) == true) {
+                break;
+            }
+        }
     }
 
-    static String perguntaAulas(int i) {
+    static String[][] preencheComEntradaUser(String[][] matrizPrincipal) {
+        String userEntrada = null;
+        int contagemAulas = 1;
 
-        Aula perguntas = new Aula();
+        /*O primeiro for esta andando nas LINHAS
+        O segundo está nas COLUNAS. Ou seja String[LINHAS][COLUNAS]*/
+        for (int i = 0; i < matrizPrincipal[0].length; i++) {
+            contagemAulas = 1;
+            for (int j = 1; j < matrizPrincipal.length; j++) {
+                //for (int k = 1; k < 3; k++) {
+                userEntrada = perguntaAulas(i, contagemAulas);
+                contagemAulas++;
+                matrizPrincipal[j][i] = userEntrada;
+                if (validarResposta(userEntrada)) {
+                    break;
+                } else if (i == 4 && j == 2) {
+                    mostrarMatriz(matrizPrincipal);
+                    System.out.println("Você terminou de preencher seus horários.\nGostaria de sair?");
+                    userEntrada = Funcoes.lerOnlyTEXTO();
+                    if (userEntrada.equalsIgnoreCase("sim") || userEntrada.equalsIgnoreCase("s")) {
+                        userEntrada = "sair";
+                        matrizPrincipal[j][i] = userEntrada;
+                        break;
+                    }
+                } else {
+                    Funcoes.pulaLinhas(10);
+                    mostrarMatriz(matrizPrincipal);
+                }
+                //}
+                if (validarResposta(userEntrada)) {
+                    break;
+                }
+            }
+            if (validarResposta(userEntrada)) {
+                break;
+            }
+        }
 
-        switch (i) {
+        return matrizPrincipal;
+    }
+
+    static String[][] criaMatriz() {
+        String[][] tabelaDeAulas
+                = {{"Segunda", "Terça", "Quarta", "Quinta", "Sexta"},
+                {"", "", "", "", ""},
+                {"", "", "", "", ""}};
+        return tabelaDeAulas;
+    }
+
+    static String perguntaAulas(int x, int y) {
+
+        String disciplina;
+
+        switch (x) {
             case 0:
-                System.out.println("Segunda");
-                perguntas.disciplina = Funcoes.lerTEXTOnext("Aula: ");
+                System.out.println(" - - - Segunda - - - ");
+                disciplina = Funcoes.lerTEXTOnext(y + "º Aula: ");
                 break;
             case 1:
-                System.out.println("Terça");
-                perguntas.disciplina = Funcoes.lerTEXTOnext("Aula: ");
+                System.out.println(" - - - Terça - - - ");
+                disciplina = Funcoes.lerTEXTOnext(y + "º Aula: ");
                 break;
             case 2:
-                System.out.println("Quarta");
-                perguntas.disciplina = Funcoes.lerTEXTOnext("Aula: ");
+                System.out.println(" - - - Quarta - - - ");
+                disciplina = Funcoes.lerTEXTOnext(y + "º Aula: ");
                 break;
             case 3:
-                System.out.println("Quinta");
-                perguntas.disciplina = Funcoes.lerTEXTOnext("Aula: ");
+                System.out.println(" - - - Quinta - - - ");
+                disciplina = Funcoes.lerTEXTOnext(y + "º Aula: ");
                 break;
             case 4:
-                System.out.println("Sexta");
-                perguntas.disciplina = Funcoes.lerTEXTOnext("Aula: ");
+                System.out.println(" - - - Sexta - - - ");
+                disciplina = Funcoes.lerTEXTOnext(y + "º Aula: ");
                 break;
             default:
-                perguntas.disciplina = null;
+                disciplina = null;
                 break;
         }
 
-        return perguntas.disciplina;
+        return disciplina;
 
     }
 
     static void mostrarMatriz(String[][] tabelaDeAulas) {
 
-        for (int i = 0; i < tabelaDeAulas.length; i++) {
-            for (int j = 0; j < tabelaDeAulas[i].length; j++) {
-                if (i == 4) {
-                    System.out.printf("%-10s\n", tabelaDeAulas[i][j]);
-                } else {
-                    System.out.printf("%-10s", tabelaDeAulas[i][j]);
-                }
-
-            }
-        }
-
-    }
-
-    static String[][] criaMatriz() {
-
-        String[][] tabelaDeAulas = new String[5][3];
-
-        for (int i = 0; i < tabelaDeAulas.length; i++) {
-            switch (i) {
-                case 0:
-                    tabelaDeAulas[i][0] = "Segunda";
-                    break;
-                case 1:
-                    tabelaDeAulas[i][0] = "Terça";
-                    break;
-                case 2:
-                    tabelaDeAulas[i][0] = "Quarta";
-                    break;
-                case 3:
-                    tabelaDeAulas[i][0] = "Quinta";
-                    break;
-                case 4:
-                    tabelaDeAulas[i][0] = "Sexta";
-                    break;
-            }
-
-        }
-
-        tabelaDeAulas = preencheDiasDaSemana(tabelaDeAulas);
-
-        return tabelaDeAulas;
-        //tabelaDeAulas = preencheDiasDaSemana(tabelaDeAulas);
-
-    }
-
-    static String[][] preencheDiasDaSemana(String[][] tabelaDeAulas) {
-
         for (String[] tabelaDeAula : tabelaDeAulas) {
-            for (int j = 1; j < tabelaDeAula.length; j++) {
-                tabelaDeAula[j] = "";
+            for (int j = 0; j < tabelaDeAula.length; j++) {
+                if (j == 4) {
+                    System.out.printf("%-10s\n", tabelaDeAula[j]);
+                } else {
+                    System.out.printf("%-10s", tabelaDeAula[j]);
+                }
             }
         }
 
-        return tabelaDeAulas;
     }
 
-}
-
-class Aula {
-
-    public String disciplina;
-
-    public boolean saiu;
-
-    public Aula(String disciplina, boolean saiu) {
-        this.disciplina = disciplina;
-        this.saiu = saiu;
+    static boolean validarResposta(String entradaUser) {
+        boolean saiu = false;
+        if (entradaUser.equalsIgnoreCase("sair")) {
+            saiu = true;
+        }
+        return saiu;
     }
 
+    static boolean validarMatriz(String[][] matrizPrincipal) {
+        boolean saiu = false;
+        for (String[] strings : matrizPrincipal) {
+            for (String string : strings) {
+                if (string.equalsIgnoreCase("sair")) {
+                    saiu = true;
+                    break;
+                }
+            }
+        }
+        return saiu;
+
+    }
+
+    //static boolean 
 }
+//    static String[][] substituiNull(String[][] tabelaDeAulas) {
+//
+//        for (String[] tabelaDeAula : tabelaDeAulas) {
+//            for (int j = 1; j < tabelaDeAula.length; j++) {
+//                tabelaDeAula[j] = "";
+//            }
+//        }
+//        return tabelaDeAulas;
+//    }
