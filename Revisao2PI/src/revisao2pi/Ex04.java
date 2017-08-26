@@ -27,7 +27,7 @@ public class Ex04 {
         double resultado = 0;
 
         for (int i = 0; i < 5; i++) {
-            double nota = Funcoes.lerDOUBLE();
+            double nota = Funcoes.lerDOUBLE("Digite um número");
             resultado += nota;
         }
         return resultado;

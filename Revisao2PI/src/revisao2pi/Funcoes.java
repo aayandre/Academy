@@ -18,28 +18,35 @@ public class Funcoes {
 
     static Scanner ler = new Scanner(System.in);
 
-    static int lerINT() {
-        System.out.println("Digite um número");
+    static int lerINT(String texto) {
+        System.out.print(texto);
         int x = ler.nextInt();
         return x;
     }
 
-    static double lerDOUBLE() {
-        System.out.println("Digite um número");
+    static double lerDOUBLE(String texto) {
+        System.out.print(texto);
         double x = ler.nextDouble();
         return x;
     }
 
     static String lerTEXTOnext(String titulo) {
-        System.out.println(titulo);
+        System.out.print(titulo);
         String x = ler.next();
         return x;
     }
 
     static String lerTEXTOnextLine(String titulo) {
-        System.out.println(titulo);
+        System.out.print(titulo);
         String x = ler.nextLine();
         return x;
+    }
+
+    static void pulaLinhas(int x) {
+        //Para sumir as coisas acima
+        for (int i = 0; i < x; i++) {
+            System.out.println("");
+        }
     }
 
 }

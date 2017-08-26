@@ -14,7 +14,7 @@ public class Ex01 {
     public static void main(String[] args) {
 
         //Entrada de decimal
-        double decimalUser = Funcoes.lerDOUBLE();
+        double decimalUser = Funcoes.lerDOUBLE("Digite um número");
         
         verificarMaiorQue50(decimalUser);
     }

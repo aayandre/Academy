@@ -13,7 +13,7 @@ public class Ex03 {
 
     public static void main(String[] args) {
 
-        int numero = Funcoes.lerINT();
+        int numero = Funcoes.lerINT("Digite um número");
 
         //Valida o número(>=10 ou <0 não pode)
         numero = validarNumero(numero);
@@ -31,7 +31,7 @@ public class Ex03 {
 
             //Repetição para entrada ser a correta
             do {
-                numeroFinal = Funcoes.lerINT();
+                numeroFinal = Funcoes.lerINT("Digite um número");
             } while (numeroFinal >= 10 || numeroFinal < 0);
 
         }
