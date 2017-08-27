@@ -39,7 +39,7 @@ public class Ex09 {
 
     static String[][] preencheComEntradaUser(String[][] matrizPrincipal) {
         String userEntrada = null;
-        int contagemAulas = 1;
+        int contagemAulas;
 
         /*O primeiro for esta andando nas LINHAS
         O segundo está nas COLUNAS. Ou seja String[LINHAS][COLUNAS]*/
@@ -62,7 +62,7 @@ public class Ex09 {
                         break;
                     }
                 } else {
-                    Funcoes.pulaLinhas(10);
+                    Funcoes.pulaLinhas(5);
                     mostrarMatriz(matrizPrincipal);
                 }
                 //}

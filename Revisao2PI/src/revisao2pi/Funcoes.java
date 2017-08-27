@@ -41,7 +41,7 @@ public class Funcoes {
         String x = ler.nextLine();
         return x;
     }
-    
+
     static String lerOnlyTEXTO() {
         String x = ler.next();
         return x;
