@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.com.senac;
+package br.com.senac.andre;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
@@ -24,9 +24,9 @@ import javax.swing.text.html.CSS;
 
 /**
  *
- * @author andre.ayamamoto
+ * @author Main.ayamamoto
  */
-public class andre {
+public class Main {
 
     public static void main(String[] args) {
         Runnable thread = new Runnable() {
