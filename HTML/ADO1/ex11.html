@@ -1,0 +1,61 @@
+<html>
+<body>
+    <table>
+        <tr>
+            <th colspan="4" style="text-align: center">Ficha Cadastral</th>
+        </tr>
+        <form action="">
+            <tr>
+                <td>Nome: </td>
+                <td colspan="3"><input type="text" style="width: 100%"></td>
+            </tr>
+            <tr>
+                <td>RG: </td>
+                <td><input type="text"></td>
+                <td>C.P.F: </td>
+                <td><input type="text"></td>
+            </tr>
+            <tr>
+                <td>Endereço: </td>
+                <td colspan="3"><input type="text" style="width: 100%"></td>
+            </tr>
+            <tr>
+                <td>Sexo: </td>
+                <td>
+                    <select>
+                        <option value="Masculino">Masculino</option>
+                        <option value="Feminino">Feminino</option>
+                    </select>
+                </td>
+                <td>Data Nascimento: </td>
+                <td><input type="date"></td>
+            </tr>
+            <tr>
+                <td>Situação Civil: </td>
+                <td colspan="3">
+                    <input id="SC" type="radio" name="gender" value="1" checked>Solteira(o)
+                    <input id="SC" type="radio" name="gender" value="2">Casada(o)
+                    <input id="SC" type="radio" name="gender" value="3">Viúva(o)
+                </td>
+            </tr>
+        </form>
+        
+        <caption align="bottom"><button>Limpar Tudo</button></caption>
+        
+    </table>
+    
+    
+</body>
+
+</html>
+
+<style>
+    td {
+        padding: 4px;
+    }
+    
+    #SC {
+        width: 15%;
+    }
+    
+</style>
