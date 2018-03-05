@@ -18,22 +18,23 @@ public class Tradutor {
     static ArrayList<Regiao> construirRegioes(BufferedReader arquivo) {
 
         String linha;
+        int contador;
 
         String[] nomesRegioes = {"norte", "sul", "leste", "oeste",
-            "centro-oeste", "nordeste", "noroeste", "suldeste", "suldoeste"};
+            "centro-oeste", "nordeste", "noroeste", "sudeste", "sudoeste"};
 
-        ArrayList<Regiao> lista = new ArrayList<>();
+        List<Regiao> lista = new ArrayList<>();
 
         boolean ehRegiao = false;
-        boolean ehParagrafo = false;
+        boolean ehParagrafo;
         Regiao regiao = new Regiao();
         ArrayList<String> estados = new ArrayList<>();
 
         try {
 
-            linha = arquivo.readLine();
+            while (arquivo.ready()) {
 
-            while ((linha = arquivo.readLine()) != null) {
+                linha = arquivo.readLine();
 
                 //Verifica se a linha é uma região
                 for (String linhaAgr : nomesRegioes) {
@@ -48,15 +49,13 @@ public class Tradutor {
                 //Verifica os paragrafos
                 if (linha.equalsIgnoreCase("")) {
                     ehParagrafo = true;
-                    regiao.setEstados(estados);
-                    estados.clear();
-                    lista.add(regiao);
                 } else {
                     ehParagrafo = false;
                 }
 
                 //Cria regiao
                 if (ehRegiao) {
+                    regiao = new Regiao();
                     regiao.setNome(linha);
                 }
 
@@ -65,14 +64,23 @@ public class Tradutor {
                     estados.add(linha);
                 }
 
+                //
+                if (ehParagrafo || !arquivo.ready()) {
+                    regiao.setEstados(estados);
+                    lista.add(regiao);
+                    estados = new ArrayList<>();
+                }
+
             }
+
+            return (ArrayList<Regiao>) lista;
 
         } catch (IOException ex) {
             System.out.println("Error ao ler arquivo.");
 
+            return null;
         }
 
-        return null;
     }
 
     static ArrayList<Estado> construirEstados(BufferedReader arquivo) {
@@ -105,6 +113,43 @@ public class Tradutor {
 
     }
 
+    static ArrayList<Regiao> adicionaPibAsRegioes(ArrayList<Regiao> regioes, ArrayList<Estado> estados) {
+
+        double pibRegiao = 0;
+
+        ArrayList<Regiao> retorno = new ArrayList<>();
+
+        //Itera as regioes
+        for (Regiao regiaoAtual : regioes) {
+
+            //Itera os estados da regiao atual
+            for (String estadoAtual : regiaoAtual.getEstados()) {
+
+                //Itera a lista de estados
+                for (Estado estado : estados) {
+
+                    //Verifica se o estadoAtual é um estado da lista estados
+                    if (estadoAtual.trim().equalsIgnoreCase(estado.getNome().trim())) {
+
+                        //Se for um estado da regiao acumala o pibDaRegiao
+                        pibRegiao += estado.getPib();
+                    }
+
+                }
+            }
+
+            //Ao acabar de somar os estados add a regiao o pib
+            regiaoAtual.setPibRegiao(pibRegiao);
+            retorno.add(regiaoAtual);
+            pibRegiao = 0;
+
+        }
+
+        //E entao retorna o array de regioes com os devidos pibs
+        return retorno;
+
+    }
+
     static BufferedReader lerArquivo(String nomeArquivo) {
 
         try {
@@ -120,22 +165,34 @@ public class Tradutor {
 
     }
 
-    static void Writer() {
+    static void escreverArquivoRegioes(ArrayList<Regiao> regioes) {
 
         String arquivoDeSaida = "saida.txt";
 
         try {
 
-            FileWriter fileWriter = new FileWriter(arquivoDeSaida);
+            FileWriter saida = new FileWriter(arquivoDeSaida);
 
-            try (BufferedWriter bufferedWriter = new BufferedWriter(fileWriter)) {
-                bufferedWriter.write("pib da regiao X = $$$$");
-                bufferedWriter.newLine();
-                bufferedWriter.write("pib da regiao Y = $$$$");
-                // feche o arquivo
+            try (PrintWriter arquivo = new PrintWriter(saida)) {
+
+                for (Regiao regiaoAtual : regioes) {
+
+                    arquivo.printf(" - %s\n   Pib: R$ %.2f\n",
+                            regiaoAtual.getNome(), regiaoAtual.getPibRegiao());
+
+                    for (String estado : regiaoAtual.getEstados()) {
+
+                        arquivo.printf("  -> %s\n", estado);
+
+                    }
+
+                    arquivo.printf("\n\n");
+                }
             }
         } catch (IOException ex) {
-            System.out.println("Erro de escrita em '" + arquivoDeSaida + "'");
+            System.out.println("Erro de escrita.");
         }
+
     }
+
 }

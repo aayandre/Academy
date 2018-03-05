@@ -30,17 +30,36 @@ public class POO_ADO1 {
         String nomeArquivo1 = "pib.txt", nomeArquivo2 = "regioes.txt";
 
         ArrayList<Estado> estados = Tradutor.construirEstados(Tradutor.lerArquivo(nomeArquivo1));
+        ArrayList<Regiao> regioes = Tradutor.construirRegioes(Tradutor.lerArquivo(nomeArquivo2));
 
         //A
         //porcentagemEstado();
         double total = calcularTotalPIB(estados);
         porcentagensPorEstado(total, estados);
-
-        //B
         
+        
+        //B
+        regioes = Tradutor.adicionaPibAsRegioes(regioes, estados);
+        pibPorRegiao(regioes);
+        Tradutor.escreverArquivoRegioes(regioes);
+
     }
 
-    static void pibPorRegiao() {
+    static void pibPorRegiao(ArrayList<Regiao> regioes) {
+
+        for (Regiao regiaoAtual : regioes) {
+
+            System.out.printf(" - %s\n   Pib: R$ %.2f\n",
+                    regiaoAtual.getNome(), regiaoAtual.getPibRegiao());
+
+            for (String estado : regiaoAtual.getEstados()) {
+
+                System.out.printf("  -> %s\n", estado);
+
+            }
+            
+            System.out.println("\n\n");
+        }
 
     }
 
@@ -59,7 +78,8 @@ public class POO_ADO1 {
     static void porcentagensPorEstado(double totalPib, ArrayList<Estado> estados) {
 
         for (Estado estado : estados) {
-            System.out.printf("Nome: %s\nPib: %.2f", estado.getNome(), estado.getPib());
+            System.out.printf("Nome: %s\nPib: %.2f",
+                    estado.getNome(), estado.getPib() / (totalPib / 100));
             System.out.println("%\n");
         }
 

@@ -1,0 +1,47 @@
+ - Norte
+   Pib: R$ 221,50
+  -> RondÃ´nia
+  -> Acre
+  -> Amazonas
+  -> Roraima
+  -> ParÃ¡
+  -> AmapÃ¡
+  -> Tocantins
+
+
+ - Nordeste
+   Pib: R$ 551,00
+  -> MaranhÃ£o
+  -> PiauÃ­
+  -> CearÃ¡
+  -> Rio Grande do Norte
+  -> ParaÃ­ba
+  -> Pernambuco
+  -> Alagoas
+  -> Sergipe
+  -> Bahia
+
+
+ - Sudeste
+   Pib: R$ 2294,00
+  -> Minas Gerais
+  -> EspÃ­rito Santo
+  -> Rio de Janeiro
+  -> SÃ£o Paulo
+
+
+ - Sul
+   Pib: R$ 671,00
+  -> ParanÃ¡
+  -> Santa Catarina
+  -> Rio Grande do Sul
+
+
+ - Centro-Oeste
+   Pib: R$ 395,00
+  -> Mato Grosso do Sul
+  -> Mato Grosso 
+  -> GoiÃ¡s
+  -> Distrito Federal
+
+

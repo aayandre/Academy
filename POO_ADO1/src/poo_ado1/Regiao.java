@@ -15,6 +15,8 @@ public class Regiao {
 
     private String nome;
 
+    private double pibRegiao;
+
     private ArrayList<String> estados;
 
     public Regiao(String Nome, ArrayList<String> Estados) {
@@ -36,6 +38,14 @@ public class Regiao {
 
     public void setNome(String Nome) {
         this.nome = Nome;
+    }
+
+    public double getPibRegiao() {
+        return pibRegiao;
+    }
+
+    public void setPibRegiao(double PibRegiao) {
+        this.pibRegiao = PibRegiao;
     }
 
     public ArrayList<String> getEstados() {
