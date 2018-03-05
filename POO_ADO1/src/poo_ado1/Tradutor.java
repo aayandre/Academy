@@ -120,4 +120,22 @@ public class Tradutor {
 
     }
 
+    static void Writer() {
+
+        String arquivoDeSaida = "saida.txt";
+
+        try {
+
+            FileWriter fileWriter = new FileWriter(arquivoDeSaida);
+
+            try (BufferedWriter bufferedWriter = new BufferedWriter(fileWriter)) {
+                bufferedWriter.write("pib da regiao X = $$$$");
+                bufferedWriter.newLine();
+                bufferedWriter.write("pib da regiao Y = $$$$");
+                // feche o arquivo
+            }
+        } catch (IOException ex) {
+            System.out.println("Erro de escrita em '" + arquivoDeSaida + "'");
+        }
+    }
 }
