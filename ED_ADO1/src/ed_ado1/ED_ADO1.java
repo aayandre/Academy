@@ -22,6 +22,8 @@ public class ED_ADO1 {
 
         //Lista de carros
         ListaSimples carList = new ListaSimples();
+        
+        //Opcoes
 
     }
 
@@ -49,10 +51,14 @@ public class ED_ADO1 {
                     Carros car = new Carros();
                     break;
                 case 2:
+                    //Adicionar carro ao fim da lista
                     break;
                 case 3:
+                    //Pesquisar carro pelo modelo
                     break;
                 case 4:
+                    //Mostrar lista
+                    System.out.println(list.impimirLista());
                     break;
                 case 5:
                     break;
@@ -69,8 +75,6 @@ public class ED_ADO1 {
     static int inputCheck() {
 
         Scanner read = new Scanner(System.in);
-
-        int numberOption = 0;
 
         String option = read.nextLine();
 
@@ -98,7 +102,6 @@ public class ED_ADO1 {
 
         if (!(numberOption >= 1 && numberOption <= 7)) {
             throw new Exception("Erro 2");
-
         }
 
         return true;
