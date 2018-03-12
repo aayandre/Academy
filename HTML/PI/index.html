@@ -6,51 +6,100 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-
+    
     <style>
         .nome {
             vertical-align: middle;
         }
-
-
+        
         .topnav {
-            background-color: rgb(153, 243, 102);
+            background-color: rgb(97, 152, 224);
             overflow: hidden;
+            height: 10%;
         }
-
+        
         .topnav a {
             float: left;
             color: #227402;
             text-align: center;
             padding: 14px 16px;
             text-decoration: none;
-            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            font-family: Arial, Helvetica, sans-serif;
             font-size: 28px;
         }
-
+        
         .topnav a:hover {
-            background-color: rgb(45, 117, 11);
             color: black;
         }
-
+        
         .topnav a.active {
-            background-color: #4CAF50;
             color: white;
+        }
+        
+        ul {
+            list-style-type: circle;
+            margin: 0;
+            padding: 0;
+            background-color: rgba(161, 228, 61, 0.733);
+            width: 15%;
+            height: 100%; /* Full height */
+            position: fixed; /* Make it stick, even on scroll */
+            overflow: auto; /* Enable scrolling if the sidenav has too much content */
+        }
+        
+        li a {
+            display: block;
+            color: rgb(51, 46, 46);
+            font-size: 28px;
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            text-align: left;
+            padding: 10px 0px 10px 20px;
+        }
+        
+        li a:hover {
+            background-color: #6da756;
+        }
+        
+        .texto {
+            margin-left:16%;
+            padding:1px 16px;
+            height:100%;
+            font-size: 18px;
         }
     </style>
 </head>
 
 <body>
-
+    
     <div class="topnav">
         <a class="active" href="#home">
             <input type="image" src="flor-verde2.png" height="50" width="100" />
         </a>
-        <a href="#news">News</a>
-        <a href="#contact">Contact</a>
-        <a href="#about">About</a>
     </div>
-
+    
+    
+    <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#news">News</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="#about">About</a></li>
+    </ul>
+    <div class="texto">
+        <p>Planta carnívora
+            Origem: Wikipédia, a enciclopédia livre.
+            Plantas carnívoras ou plantas insetívoras são plantas com a capacidade de atrair pequenos animais,<br>
+            incluindo insetos (principais presas), aracnídeos e até mesmo anfíbios, répteis e aves,<br>
+            capturar (através de armadilhas compostas por folhas modificadas), digerir (através de enzimas digestivas)<br>
+            e utilizar os nutrientes (principalmente compostos nitrogenados) de suas presas. Habitam geralmente solos pobres,<br>
+            encharcados de ácidos (baixo pH) com pouca disponibilidade de nitratos (essenciais para a síntese da molécula de clorofila),<br>
+            dependendo assim do nitrogênio contido nas proteínas dos animais, mas, como todo vegetal, é dependente da energia proveniente<br>
+            da luz para sobreviver.<br>
+            <br>
+            A família Dioncophyllaceae abriga o gênero monoespecífico Triphyophyllum (T. peltatum), considerada atualmente a maior das plantas carnívoras.<br>
+        </p>
+    </div>
+    
+    
 </body>
 
 </html>

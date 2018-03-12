@@ -118,10 +118,13 @@ public class ListaSimples {
         } else {
             No atual = this.prim;
             while (atual != null) {
-                msg += atual.getC().getModelo() + "-->";
+                msg += "Modelo: " + atual.getC().getModelo() + "\n"
+                        + "Marca: " + atual.getC().getMarca() + "\n"
+                        + "Ano: " + atual.getC().getAno() + "\n\n";
                 atual = atual.getProx();
             }
         }
         return msg;
     }
+
 }
