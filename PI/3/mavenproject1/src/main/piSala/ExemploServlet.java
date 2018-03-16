@@ -17,7 +17,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author andre.ayamamoto
  */
-@WebServlet
+@WebServlet(name = "ExemploServlet", urlPatterns = ("/xpto"))
 public class ExemploServlet extends HttpServlet {
 
     @Override
