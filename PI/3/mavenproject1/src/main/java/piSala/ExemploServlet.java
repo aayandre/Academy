@@ -17,7 +17,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author andre.ayamamoto
  */
-@WebServlet(name = "ExemploServlet", urlPatterns = ("/xpto"))
+@WebServlet(name = "ExemploServlet", urlPatterns = {"/xpto"})
 public class ExemploServlet extends HttpServlet {
 
     @Override
@@ -31,8 +31,7 @@ public class ExemploServlet extends HttpServlet {
             resp.setStatus(200);
             resp.setContentType("text/plain");
             resp.setCharacterEncoding("UTF-8");
-
-            printer.println(msg);
+            
             printer.flush();
         }
     }
