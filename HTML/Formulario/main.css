@@ -1,0 +1,23 @@
+.header {
+    height: 75px;
+    text-align: center;
+}
+.content {
+    margin: 1px;
+    text-align: left;
+    height: max-content;
+}
+.form1 {
+    margin: 0px 25%;
+}
+.formContent {
+    padding: 10px 8px;
+}
+.formContent input {
+    border-width: 0px 0px 1px 0px;
+    width: 100%;
+    text-align: center;
+}
+.formButton {
+    text-align: center;
+}
