@@ -39,9 +39,9 @@ public class POO_ADO1 {
         
         
         //B
-        regioes = Tradutor.adicionaPibAsRegioes(regioes, estados);
+        // regioes = Tradutor.adicionaPibAsRegioes(regioes, estados);
         //pibPorRegiao(regioes);
-        Tradutor.escreverArquivoRegioes(regioes);
+        // Tradutor.escreverArquivoRegioes(regioes);
 
     }
 
