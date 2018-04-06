@@ -4,7 +4,48 @@
 #box {
     width: 300px;
     height: 300px;
-    padding: 30px;
-    background: rgb(98, 200, 128);
+    padding: 1px 20px 35px 20px;
+    box-sizing: content-box;
+    background: url(../img/fractal.jpg);
     border-radius: 20px 40px;
+    box-shadow: 6px 6px 10px rgb(110, 34, 231), -6px -6px 10px rgb(17, 233, 222);
+}
+#box:hover {
+    box-shadow: 6px 6px 10px rgb(243, 110, 2), -6px -6px 10px rgb(255, 238, 0);
+    background: green;
+}
+#box h1 {
+    color: white;
+    font-size: 60px;
+    text-shadow: 4px 4px 10px black;
+}
+#box p {
+    color: white;
+}
+
+@keyframes animation-box{
+    from {
+        background: red;
+        border-radius: 20px;
+        left: 0px;
+    } 
+    to {
+        background: green;
+        border-radius: 300px;
+        left: 300px;
+    }
+}
+
+#box-animation {
+    width: 300px;
+    height: 300px;
+    border-radius: 20px;
+    background: red;
+    position: relative;
+    margin: 40px;
+    animation-name: animation-box;
+    animation-duration: 5s;
+    animation-delay: 2s;
+    animation-iteration-count: 2;
+    animation-direction: alternate;
 }
